@@ -85,30 +85,16 @@ if (isset($_POST['SubmitButton'])) { //check if form was submitted
             $fileToUpload = $_FILES['berkas']['name'];
             $content = file_get_contents($_FILES['berkas']['tmp_name']);
             $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
-            // echo "<br />";
-            // echo "<input type='hidden' id='inputImage' value='https://imanystorage.blob.core.windows.net/imagecontainer/". $fileToUpload . "'>";
-            // echo "<div id='wrapper' style='width:1020px; display:table;'>";
-            // echo "<div id='imageDiv' style='width:420px; display:table-cell;'>";
-            // echo "Uploaded image: ";
-            // echo "<br><br>";
-            // echo "<img onload='processImage()' id='sourceImage' src='https://imanystorage.blob.core.windows.net/imagecontainer/". $fileToUpload . "' width='20%' />";
-            // echo "<p class='imageDescription'></p>";
-            // echo "</div>";
-            // echo "</div>";
-            ?>
-            <br>
-            <input type="hidden" id="inputImage"
-            value="https://imanystorage.blob.core.windows.net/imagecontainer/<?php $fileToUpload ?>">
-            <div id="wrapper" style="width: 1020px; display:table;">
-              <div id="imageDiv" style="width:420px; display:table-cell;">
-                <p>Uploaded Image</p>
-                <br>
-                <img src="https://imanystorage.blob.core.windows.net/imagecontainer/<?php $fileToUpload ?>" onload="processImage()" />
-                <p class="imageDescription"></p>
-              </div>
-
-            </div>
-            <?php
+            echo "<br />";
+            echo "<input type='hidden' id='inputImage' value='https://imanystorage.blob.core.windows.net/imagecontainer/". $fileToUpload . "'>";
+            echo "<div id='wrapper' style='width:1020px; display:table;'>";
+            echo "<div id='imageDiv' style='width:420px; display:table-cell;'>";
+            echo "Uploaded image: ";
+            echo "<br><br>";
+            echo "<img onload='processImage()' id='sourceImage' src='https://imanystorage.blob.core.windows.net/imagecontainer/". $fileToUpload . "' width='20%' />";
+            echo "<p class='imageDescription'></p>";
+            echo "</div>";
+            echo "</div>";
 
         } catch (ServiceException $e) {
             $code = $e->getCode();
